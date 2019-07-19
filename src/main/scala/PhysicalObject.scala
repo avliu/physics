@@ -15,11 +15,4 @@ class PhysicalObject(var location: PhysicsVector = new PhysicsVector(0,0,0),
     s"location: $s1, velocity: $s2"
   }
 
-  override def equals(other: Any): Boolean = {
-    other match {
-      case o: PhysicalObject => (location == o.location & velocity == o.velocity)
-      case _ => false
-    }
-  }
-
 }

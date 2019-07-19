@@ -18,13 +18,4 @@ class Physics {
 
   }
 
-  def updateVelocity(obj: PhysicalObject, world: World, delta: Double): Unit = {
-
-    obj match {
-      case obj.velocity.z < 0 & obj.location.z == 0 => obj.velocity.z = 0
-      case _ => obj.velocity.z += obj.velocity.z - world.gravity * delta
-    }
-
-  }
-
 }
