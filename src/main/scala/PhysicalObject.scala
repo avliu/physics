@@ -1,5 +1,7 @@
 package scala
 
+import jdk.jfr.Threshold
+
 class PhysicalObject(var location: PhysicsVector = new PhysicsVector(0,0,0),
                      var velocity: PhysicsVector= new PhysicsVector(0,0,0)) {
 

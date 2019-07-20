@@ -18,15 +18,15 @@ class TestUpdateVelocity extends FunSuite with BeforeAndAfter {
   }
 
   test("Test non-negative case") {
-    test_object.velocity = new PhysicsVector(1,1,1)
-    physics.updateVelocity(test_object, test_world, 3)
-    answer_object.velocity = new PhysicsVector(1,1,4)
+    test_object.velocity = new PhysicsVector(1,1,10)
+    physics.updateVelocity(test_object, test_world, 1)
+    answer_object.velocity = new PhysicsVector(1,1,0.2)
 
     val result_string = test_object.toString
     val answer_string = answer_object.toString
 
-    print(s"expected ->  $answer_string     ...    got $result_string \n")
-    assert(test_object.equals(answer_object))
+    print(s"expected ->  $answer_string     ...    got -> $result_string \n")
+    assert(test_object == answer_object)
   }
 
   test("Test negative case") {
@@ -37,8 +37,8 @@ class TestUpdateVelocity extends FunSuite with BeforeAndAfter {
     val result_string = test_object.toString
     val answer_string = answer_object.toString
 
-    print(s"expected ->  $answer_string     ...    got $result_string \n")
-    assert(test_object.equals(answer_object))
+    print(s"expected ->  $answer_string     ...    got -> $result_string \n")
+    assert(test_object == answer_object)
   }
 
   test("Trivial") {
