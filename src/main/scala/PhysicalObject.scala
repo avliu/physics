@@ -1,7 +1,5 @@
 package scala
 
-import jdk.jfr.Threshold
-
 class PhysicalObject(var location: PhysicsVector = new PhysicsVector(0,0,0),
                      var velocity: PhysicsVector= new PhysicsVector(0,0,0)) {
 
@@ -9,6 +7,13 @@ class PhysicalObject(var location: PhysicsVector = new PhysicsVector(0,0,0),
     location.x += dx
     location.y += dy
     location.z += dz
+  }
+
+  override def equals(other: Any): Boolean = {
+    other match {
+      case o: PhysicalObject => (location == o.location) & (velocity == o.velocity)
+      case _ => false
+    }
   }
 
   override def toString: String = {

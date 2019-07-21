@@ -1,6 +1,7 @@
 package scala
 
 import org.scalatest._
+import scala.TestFunctions
 
 
 class TestUpdateVelocity extends FunSuite with BeforeAndAfter {
@@ -9,6 +10,7 @@ class TestUpdateVelocity extends FunSuite with BeforeAndAfter {
   var test_world: World = _
   var physics: Physics = _
   var answer_object: PhysicalObject = _
+  val test_functions: TestFunctions = new TestFunctions
 
   before{
     test_object = new PhysicalObject()
@@ -22,10 +24,7 @@ class TestUpdateVelocity extends FunSuite with BeforeAndAfter {
     physics.updateVelocity(test_object, test_world, 1)
     answer_object.velocity = new PhysicsVector(1,1,0.2)
 
-    val result_string = test_object.toString
-    val answer_string = answer_object.toString
-
-    print(s"expected ->  $answer_string     ...    got -> $result_string \n")
+    print(test_functions.summary_string(test_object, answer_object))
     assert(test_object == answer_object)
   }
 
@@ -34,10 +33,7 @@ class TestUpdateVelocity extends FunSuite with BeforeAndAfter {
     physics.updateVelocity(test_object, test_world, 3)
     answer_object.velocity = new PhysicsVector(1,1,0)
 
-    val result_string = test_object.toString
-    val answer_string = answer_object.toString
-
-    print(s"expected ->  $answer_string     ...    got -> $result_string \n")
+    print(test_functions.summary_string(test_object, answer_object))
     assert(test_object == answer_object)
   }
 
